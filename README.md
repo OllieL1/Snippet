@@ -6,6 +6,6 @@ Welcome to Snippet! This is a personal project where we look to build a small di
 ### Setup Guide
 1. Clone the repo from main
 2. Use https://www.rust-lang.org/tools/install to install Rust and Cargo
-3. In the snippet folder terminal, run 'Cargo check'
-4. If no errors, run 'Cargo run'
+3. In the snippet folder terminal, run 'cargo check'
+4. If no errors, run 'cargo run'
 
