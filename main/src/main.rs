@@ -1,72 +1,11 @@
 use std::io::{self, Write};
+mod states;
 
-trait State {
-    fn next(self: Box<Self>) -> Box<dyn State>;
-    fn print_state(&self);
-}
-
-struct State1;
-
-impl State for State1 {
-    fn next(self: Box<Self>) -> Box<dyn State> {
-        Box::new(State2)
-    }
-
-    fn print_state(&self) {
-        println!("Current State: State 1");
-    }
-}
-
-struct State2;
-
-impl State for State2 {
-    fn next(self: Box<Self>) -> Box<dyn State> {
-        Box::new(State3) 
-    }
-
-    fn print_state(&self) {
-        println!("Current state: State2");
-    }
-}
-
-struct State3;
-
-impl State for State3 {
-    fn next(self: Box<Self>) -> Box<dyn State> {
-        Box::new(State4) 
-    }
-
-    fn print_state(&self) {
-        println!("Current state: State3");
-    }
-}
-
-struct State4;
-
-impl State for State4 {
-    fn next(self: Box<Self>) -> Box<dyn State> {
-        Box::new(State5) 
-    }
-
-    fn print_state(&self) {
-        println!("Current state: State4");
-    }
-}
-
-struct State5;
-
-impl State for State5 {
-    fn next(self: Box<Self>) -> Box<dyn State> {
-        Box::new(State1) 
-    }
-
-    fn print_state(&self) {
-        println!("Current state: State5");
-    }
-}
+use states::state1::State1;
+use states::State;
 
 fn main() {
-    let mut current_state : Box<dyn State> = Box::new(State1);
+    let mut current_state: Box<dyn State> = Box::new(State1);
 
     loop {
         current_state.print_state();
